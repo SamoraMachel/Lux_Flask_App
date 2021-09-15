@@ -6,7 +6,9 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def login_user():
     if request.method == 'POST':
-        return "Posted Data"
+        details = request.form
+        username = details["username"]
+        return render_template('main.html', user=username)
     return render_template('login.html')
     
     
