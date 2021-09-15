@@ -4,9 +4,9 @@ COPY . /src
 
 COPY ../requirements.txt /src/requirements.txt
 
-COPY ../templates ../templates
+COPY ./templates src/templates
 
-COPY ../static ../static 
+COPY ./static src/static 
 
 WORKDIR /src 
 
