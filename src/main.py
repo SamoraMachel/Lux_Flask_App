@@ -43,11 +43,14 @@ def login_user():
     if request.method == 'POST':
         details = request.form
         username = details["username"]
-        return render_template('main.html', user=username, articles=sampleArticles)
+        return display_articles(username)
+        
     return render_template('login.html')
     
+@app.route('/articles', methods=['GET'])
+def display_articles(username):
+    return render_template('main.html', user=username, articles=sampleArticles)
     
-
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
